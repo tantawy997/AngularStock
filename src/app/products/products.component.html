@@ -1,0 +1,17 @@
+
+<section class="banner">
+  <div class="container row">
+<div class="card col-lg-4 col-md-4 col-sm-4 m-2"  style="width: 18rem;" *ngFor="let item of Products">
+    <img class="card-img-top" [src]="'https://localhost:7062/'+item.photo"  [alt]="item.name">
+    <div class="card-body ">
+      <h5 class="card-title">{{item.name}}</h5>
+      <h6 class="card-title">{{item.type}}</h6>
+      <p class="card-text">{{item.description}}</p>
+      <a  routerLink="/Products/AddProduct" class="btn btn-primary">add</a>
+      <a type="button" class="btn btn-danger" (click)="Delete(item.id)" >delete</a>
+      <a class="btn btn-warning"  type="button" (click)="EditProduct(item.id)">Edit</a>
+    </div>
+  </div>
+<a type="button" routerLink="/Products/AddProduct" class="btn btn-primary m-auto" [hidden]="Length()">Add product</a>
+</div>
+</section>

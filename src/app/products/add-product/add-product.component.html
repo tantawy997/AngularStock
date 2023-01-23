@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="card col-md-6 offset-md-3 offset-md-3">
+      <div class="row">
+          <h3 class="text-center"> Create Product </h3>
+          <hr />
+          <div class="card-body">
+              <form   >
+
+
+                      <label>product name</label>
+                      <input type="text" class="form-control"   id="name"  [(ngModel)]="Product.name"
+                          name="name">
+
+
+
+                      <label>description</label>
+                      <input type="text" class="form-control"  id="description"  [(ngModel)]="Product.description"
+                          name="description">
+
+
+                      <label>type</label>
+
+                      <select type="text" class="form-control"  id="type"  name="type" [(ngModel)]="Product.type" >
+                        <option value="0">out of stock</option>
+                        <option value="1">available</option>
+                      </select>
+
+
+
+                    <label>photo</label>
+
+                    <input type="file" class="form-control" id="photo" (change)="onChange($event)" name="file" >
+
+
+
+                  <br />
+                  <button class="btn btn-success" type="button" (click)="AddProduct(Product)">Submit</button>
+
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
