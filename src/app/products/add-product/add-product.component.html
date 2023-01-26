@@ -4,37 +4,37 @@
           <h3 class="text-center"> Create Product </h3>
           <hr />
           <div class="card-body">
-              <form   >
-
+              <form   (ngSubmit)="AddProduct(ProductAddForm)" [formGroup]="ProductAddForm" enctype="multipart/form-data"  >
 
                       <label>product name</label>
-                      <input type="text" class="form-control"   id="name"  [(ngModel)]="Product.name"
+
+                      <input type="text" class="form-control"   id="name"  formControlName="name"
                           name="name">
 
 
 
                       <label>description</label>
-                      <input type="text" class="form-control"  id="description"  [(ngModel)]="Product.description"
+                      <input type="text" class="form-control"  id="description"  formControlName="description"
                           name="description">
 
 
                       <label>type</label>
 
-                      <select type="text" class="form-control"  id="type"  name="type" [(ngModel)]="Product.type" >
-                        <option value="0">out of stock</option>
-                        <option value="1">available</option>
+                      <select type="text" class="form-control"  id="type"  name="type" formControlName="type" >
+                        <option value="true">out of stock</option>
+                        <option value="false">available</option>
                       </select>
 
 
 
                     <label>photo</label>
 
-                    <input type="file" class="form-control" id="photo" (change)="onChange($event)" name="file" >
+                    <input type="file" class="form-control" id="photo" (change)="onChange($event)" formControlName="image" name="image" >
 
 
 
                   <br />
-                  <button class="btn btn-success" type="button" (click)="AddProduct(Product)">Submit</button>
+                  <button class="btn btn-info mt-3" type="submit" >submit</button>
 
               </form>
           </div>
