@@ -1,24 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Details } from 'src/app/Models/details';
-import { Products } from 'src/app/Models/products';
 import { ProductsService } from 'src/app/service/products.service';
 
 @Component({
-  selector: 'app-update-product',
-  templateUrl: './update-product.component.html',
-  styleUrls: ['./update-product.component.css']
+  selector: 'app-product-details',
+  templateUrl: './product-details.component.html',
+  styleUrls: ['./product-details.component.css']
 })
-export class UpdateProductComponent implements OnInit {
-
+export class ProductDetailsComponent implements OnInit {
   id:string| null = "";
   zero:boolean = false;
   one:boolean=true;
-
+  type:string = "";
   Product:Details = new Details("" ,"",0, 0 ,"" , "",false);
+
   constructor(private ProductService:ProductsService, private router:Router, private route:ActivatedRoute){
 
   }
+
   ngOnInit() {
 
     this.route.paramMap.subscribe( p => {
@@ -34,6 +34,9 @@ export class UpdateProductComponent implements OnInit {
       console.log(res);
       this.Product= res;
       console.log(this.Product);
+      if (this.Product.type == true){
+        this.type = "available";
+      }
     })
 
   }
@@ -41,24 +44,4 @@ export class UpdateProductComponent implements OnInit {
   back(){
     this.router.navigateByUrl("/");
   }
-
-  EditProdut(product:Details){
-    if (product.type == this.zero){
-      product.type = false
-    }else{
-      product.type = true;
-    }
-
-    this.ProductService.UpdateProduct(product).subscribe((response) => {
-      console.log(response);
-
-    },
-    (e) => {
-      console.log(e)
-    })
-
-    this.router.navigateByUrl("/");
-  }
-
-
 }

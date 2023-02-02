@@ -1,17 +1,50 @@
-
+<!--
 <section class="banner">
   <div class="container row">
 <div class="card col-lg-4 col-md-4 col-sm-4 m-2"  style="width: 18rem;" *ngFor="let item of Products">
-    <img class="card-img-top" [src]="'https://localhost:7062/'+item.photo"  [alt]="item.name">
+     <img class="card-img-top" [src]="'https://localhost:7062/'+item.photo"  [alt]="item.name">
     <div class="card-body ">
       <h5 class="card-title">{{item.name}}</h5>
       <h6 class="card-title">{{item.type}}</h6>
       <p class="card-text">{{item.description}}</p>
       <a  routerLink="/Products/AddProduct" class="btn btn-primary">add</a>
-      <a type="button" class="btn btn-danger" (click)="Delete(item.id)" >delete</a>
-      <a class="btn btn-warning"  type="button" (click)="EditProduct(item.id)">Edit</a>
+
+      <a class="btn btn-warning"  type="button" (click)="EditProduct(item.Id)">Edit</a>
     </div>
   </div>
 <a type="button" routerLink="/Products/AddProduct" class="btn btn-primary m-auto" [hidden]="Length()">Add product</a>
 </div>
+</section> -->
+
+
+<section>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">name</th>
+        <th scope="col">descreption</th>
+        <th scope="col">type</th>
+        <th>delete</th>
+        <th>add</th>
+        <th>edit</th>
+        <th>details</th>
+        <th>Add To Catalog</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Products">
+        <th scope="row">1</th>
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.type}}</td>
+        <td><a type="button" class="btn btn-danger" (click)="Delete(item.id)" >delete</a></td>
+        <td><a  routerLink="/Products/AddProduct" class="btn btn-primary">add</a></td>
+        <td><a class="btn btn-warning"  type="button" (click)="EditProduct(item.id)">Edit</a> </td>
+        <td> <a class="btn btn-info"  type="button" (click)="ShowDetails(item.id)">Details</a></td>
+        <td> <a class="btn btn-info"  type="button" (click)="AddToCatalog(item.id)">Add To catalog</a></td>
+      </tr>
+    </tbody>
+    <a type="button" routerLink="/Products/AddProduct" class="btn btn-primary m-auto" [hidden]="Length()">Add product</a>
+  </table>
 </section>
