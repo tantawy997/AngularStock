@@ -1,0 +1,32 @@
+
+
+<section>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">name</th>
+        <th>delete</th>
+        <th>add</th>
+        <th>edit</th>
+        <th>details</th>
+        <th>add to Product</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Catalogs">
+        <td>{{item.name}}</td>
+        <td><a type="button" class="btn btn-danger" (click)="Delete(item.id)" >delete</a></td>
+        <td><a  (click)="ToAdd()" class="btn btn-primary">add new catalog</a></td>
+        <td><a class="btn btn-warning"  type="button" (click)="EditCatalog(item.id)">Edit</a> </td>
+        <td> <a class="btn btn-info"  type="button" (click)="ShowDetails(item.id)">Details</a></td>
+        <td><a class="btn btn-secondary" type="button" (click)="AddToProduct(item.id)">add to Product</a></td>
+      </tr>
+    </tbody>
+    <a type="button" (click)="ToAdd()" class="btn btn-primary m-auto" [hidden]="Length()">Add your first Catalog</a>
+
+  </table>
+</section>
+
+
+
+<!-- <router-outlet></router-outlet> -->

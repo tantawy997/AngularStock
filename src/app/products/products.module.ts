@@ -8,13 +8,18 @@ import { RouterModule } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CatalogsModule } from '../catalogs/catalogs.module';
+import { ProductToCatalogComponent } from './product-to-catalog/product-to-catalog.component';
 
 
 @NgModule({
   declarations: [
     ProductsComponent,
     AddProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    ProductDetailsComponent,
+    ProductToCatalogComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +27,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     HttpClientModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   exports:[ProductsComponent,AddProductComponent,RouterModule]
 })

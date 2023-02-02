@@ -1,0 +1,32 @@
+<section  >
+
+  <div style="width: 30%; margin: auto;">
+      <div class="card-body" style="box-sizing: content-box; border-radius: 10px;border: 2px black solid; " >
+        <div class="text-center" style="border: 2px #793b16 solid;">
+          <h5 class="card-title">{{Product.name}}</h5>
+          <p class="card-text">{{Product.description}}</p>
+        </div>
+        <div>
+          <div class="d-flex justify-content-around" style="border: 2px #793b16 solid;" >
+            <span>sale Price</span><span>{{ Product.salesPrice }}</span>
+          </div>
+          <div class="d-flex justify-content-around" style="border: 2px #793b16  solid;">
+            <span>Purchase Price</span><span>{{Product.purchasePrice }}</span>
+          </div>
+        </div>
+        <div class="d-flex justify-content-around total font-weight-bold mt-4" style="border: 2px #793b16  solid;">
+          <span>difference</span><span>{{Product.salesPrice - Product.purchasePrice }}</span>
+        </div>
+        <div class="d-flex justify-content-around total font-weight-bold mt-4" style="border: 2px #793b16  solid;">
+          <span>defualt stock</span> <span>{{Product.defualtStock}}</span>
+        </div>
+        <div class="d-flex justify-content-around total font-weight-bold mt-4" style="border: 2px #793b16  solid;">
+          <span>type</span><span>{{Product.type}}</span>
+        </div>
+      <div style="text-align: center;">
+        <button class="btn btn-info" type="button" style="text-align: center;" (click)="back()">back</button>
+      </div>
+    </div>
+  </div>
+
+</section>

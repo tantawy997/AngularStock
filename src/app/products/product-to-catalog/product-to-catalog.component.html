@@ -1,0 +1,13 @@
+
+
+
+<section class="container" style="margin:10% 10%;">
+<p>To Add Product {{ProductName}} to catalog</p>
+<label for="catalog">catalog</label>
+<select [(ngModel)]="productCatalog.catalogsId">
+  <option *ngFor="let item of Catalogs" [value]="item.id">{{item.name}}</option>
+</select>
+<button class="btn btn-primary" type="button" (click)="add(productCatalog.catalogsId)">add</button>
+<button (click)="back()" class="btn btn-secondary" type="button">back</button>
+</section>
+
